@@ -1,14 +1,44 @@
 #include <fstream>
 #include <iterator>
 #include <vector>
-//#include <iostream>
+
+#include <sys/types.h>
+#include <dirent.h>
+
+char fileCountInDirectory(char *path)
+{
+    DIR *dp;
+    int fileCount = 0;
+    struct dirent *ep;
+    dp = opendir("./");
+
+    if (dp != NULL)
+    {
+        while (ep = readdir(dp))
+            fileCount++;
+
+        (void)closedir(dp);
+    }
+    else
+        perror("Couldn't open the directory");
+
+    printf("There's %d files in the current directory.\n", fileCount);
+
+    return fileCount;
+}
 
 int main()
 {
+    std::vector<char> outFileBytes;
+    char *path = "/home/simon/Desktop/test/test.txt";
 
-    std::ifstream input("/home/simon/Desktop/test/test.txt", std::ios::binary);
+    std::vector<char> header;
+    outFileBytes.push_back(1);
+    outFileBytes.push_back(fileCountInDirectory(path));
 
     // Read the file in binary
+    std::ifstream input(path, std::ios::binary);
+
     std::vector<char> inFileBytes(
         (std::istreambuf_iterator<char>(input)),
         (std::istreambuf_iterator<char>()));
@@ -16,7 +46,6 @@ int main()
     input.close();
 
     // RLE compression
-    std::vector<char> outFileBytes;
     int lastChar = inFileBytes[0];
     for (int i = 0, count = -1; i < inFileBytes.size(); i++)
     {
