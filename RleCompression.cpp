@@ -6,17 +6,17 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <stdio.h>
+#include <string.h>
 
 std::vector<char> outFileBytes;
 
 // Returns the number of files in a directory
-char fileCountInDirectory(char *path)
+char fileCountInDirectory(const char *path)
 {
     DIR *dp;
     int fileCount = 0;
     struct dirent *ep;
-    printf(path);
-    dp = opendir(/*path*/ "/home/simon/Desktop/tests");
+    dp = opendir(path);
 
     if (dp != NULL)
     {
@@ -34,7 +34,7 @@ char fileCountInDirectory(char *path)
 }
 
 // Returns the byte size of the file
-char getFileSize(char *path)
+char getFileSize(const char *path)
 {
     std::ifstream inFile(path, std::ios::binary);
     inFile.seekg(0, std::ios::end);
@@ -63,12 +63,11 @@ void RLECompression(char *path, std::vector<char> fileBytes)
 
 int main()
 {
-    char *path = "/home/simon/Desktop/tests.test.txt";
+    const char *path = "/home/simon/Desktop/tests/";
 
-    //std::vector<char> header;
     outFileBytes.push_back(1);
     outFileBytes.push_back(fileCountInDirectory(path));
-    outFileBytes.push_back(getFileSize(path));
+    outFileBytes.push_back(getFileSize(path)); // call this function in the file loop
 
     // Loops through the files in the directory and compress them
     DIR *dir;
@@ -88,6 +87,27 @@ int main()
         perror("opendir");
         return EXIT_FAILURE;
     }
+
+    // -----------------------------------------------------------------
+
+    // Erases the '.' and '..' files from files vector
+    int eraseIndex[2];
+    for (int i = 0; i < files.size(); i++)
+    {
+        if (strcmp(files[i], "..") < 0)
+        {
+            eraseIndex[0] = i;
+        }
+        if (strcmp(files[i], ".") < 0)
+        {
+            eraseIndex[1] = i;
+        }
+    }
+
+    files.erase(files.begin() + eraseIndex[0]);
+    files.erase(files.begin() + eraseIndex[1]);
+
+    // -------------------------------------------------------------------
 
     for (auto file : files)
     {
