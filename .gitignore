@@ -31,6 +31,8 @@
 *.out
 *.app
 RleCompression
+RleCompression_gcc
+RleCompression_clang
 
 # Project files
 .vs
