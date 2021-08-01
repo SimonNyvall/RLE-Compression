@@ -1,0 +1,5 @@
+RleCompression
+RleCompression_gcc
+RleCompression_clang
+.vs
+.vscode
