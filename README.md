@@ -13,6 +13,3 @@ g++ Compress.cpp
 ./a.out [in_path] [out_path]
 ```
 ![Screenshot from 2022-08-06 20-02-30](https://user-images.githubusercontent.com/50596493/183260636-12980fbc-9211-4ae7-a341-638ba1a507a5.png)
-
-![Screenshot from 2022-08-06 20-04-34](https://user-images.githubusercontent.com/50596493/183260726-dbea2ccc-6eb1-44ca-829c-c1f4e367cd60.png)
-![Screenshot from 2022-08-06 20-04-54](https://user-images.githubusercontent.com/50596493/183260727-89389431-d92a-41e1-91d4-f0cc3af4be18.png)
