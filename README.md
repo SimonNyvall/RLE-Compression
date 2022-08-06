@@ -1,5 +1,4 @@
-# RLE-Compression [![Build](https://github.com/SimonNyvall/RLE-Compression/actions/workflows/build.yml/badge.svg)](https://github.com/SimonNyvall/RLE-Compression/actions/workflows/build.yml?query=workflow%3A"CI")
-
+# RLE-Compression 
 ![rle-349606891](https://user-images.githubusercontent.com/50596493/183259051-d13e545d-d4e1-41da-af43-7126a17869e0.jpeg)
 
 A small hobby project to better understand lossless compression. Run Length Compression is one of the more less complicated algorithms to implicate.
