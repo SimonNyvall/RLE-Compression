@@ -1,3 +1,18 @@
 # RLE-Compression [![Build](https://github.com/SimonNyvall/RLE-Compression/actions/workflows/build.yml/badge.svg)](https://github.com/SimonNyvall/RLE-Compression/actions/workflows/build.yml?query=workflow%3A"CI")
 
+![rle-349606891](https://user-images.githubusercontent.com/50596493/183259051-d13e545d-d4e1-41da-af43-7126a17869e0.jpeg)
 
+A small hobby project to better understand lossless compression. Run Length Compression is one of the more less complicated algorithms to implicate.
+
+## Compile and run
+Compile the program with g++ and execute the a.out file with two arguments for the starting and ending path.
+```
+g++ Compress.cpp
+```
+```
+./a.out [in_path] [out_path]
+```
+![Screenshot from 2022-08-06 20-02-30](https://user-images.githubusercontent.com/50596493/183260636-12980fbc-9211-4ae7-a341-638ba1a507a5.png)
+
+![Screenshot from 2022-08-06 20-04-34](https://user-images.githubusercontent.com/50596493/183260726-dbea2ccc-6eb1-44ca-829c-c1f4e367cd60.png)
+![Screenshot from 2022-08-06 20-04-54](https://user-images.githubusercontent.com/50596493/183260727-89389431-d92a-41e1-91d4-f0cc3af4be18.png)
