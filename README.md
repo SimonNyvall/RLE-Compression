@@ -5,10 +5,10 @@ A small hobby project to better understand lossless compression. Run Length Comp
 
 ## Compile and run
 Compile the program with g++ and execute the a.out file with two arguments for the starting and ending path.
-```
+```bash
 g++ Compress.cpp
 ```
-```
+```bash
 ./a.out [in_path] [out_path]
 ```
 ![Screenshot from 2022-08-06 20-02-30](https://user-images.githubusercontent.com/50596493/183260636-12980fbc-9211-4ae7-a341-638ba1a507a5.png)
